@@ -1,14 +1,14 @@
 {
-  "name": "scorm-api-wrapper",
-  "version": "1.1.20160322",
-  "description": "The pipwerks SCORM API Wrapper ",
+  "name": "@umdnflc/scorm-api-wrapper",
+  "version": "1.1.3",
+  "description": "The NFLC-UMD SCORM API Wrapper ",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/pipwerks/scorm-api-wrapper"
+    "url": "https://github.com/NFLC-UMD/scorm-api-wrapper.git"
   },
   "keywords": [
     "SCORM"
@@ -18,5 +18,5 @@
   "bugs": {
     "url": "https://github.com/pipwerks/scorm-api-wrapper/issues"
   },
-  "homepage": "https://github.com/pipwerks/scorm-api-wrapper"
+  "homepage": "https://github.com/NFLC-UMD/scorm-api-wrapper"
 }
