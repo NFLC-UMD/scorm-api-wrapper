@@ -168,12 +168,18 @@ pipwerks.SCORM.API.find = function(win){
 ---------------------------------------------------------------------------- */
 
 pipwerks.SCORM.API.get = function(){
-
     var API = null,
         win = window,
         scorm = pipwerks.SCORM,
         find = scorm.API.find,
         trace = pipwerks.UTILS.trace;
+
+    if(win.self !== win.top){
+        if (location.protocol + '//'+ location.host + '/' !== document.referrer) {
+            trace("Cross-domain iframe detected.  Cannot access parent frame to look for a SCORM API.");
+            return API;
+        }
+    }   
 
     API = find(win);
 
@@ -240,7 +246,6 @@ pipwerks.SCORM.API.getHandle = function() {
 ---------------------------------------------------------------------------- */
 
 pipwerks.SCORM.connection.initialize = function(){
-
     var success = false,
         scorm = pipwerks.SCORM,
         completionStatus = scorm.data.completionStatus,
@@ -841,3 +846,16 @@ pipwerks.UTILS.trace = function(msg){
 
      }
 };
+
+class PipwerksScorm {
+    constructor() {
+        this.init = pipwerks.SCORM.connection.initialize;
+        this.getValue  = pipwerks.SCORM.data.get;
+        this.setValue  = pipwerks.SCORM.data.set;
+        this.save = pipwerks.SCORM.data.save;
+        this.quit = pipwerks.SCORM.connection.terminate;
+        this.version = pipwerks.SCORM.version;
+    }    
+}
+
+module.exports = new PipwerksScorm();
