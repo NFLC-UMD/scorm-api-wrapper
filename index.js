@@ -75,7 +75,7 @@ pipwerks.SCORM.API.find = function(win){
 
     var API = null,
         findAttempts = 0,
-        findAttemptLimit = 500,
+        findAttemptLimit = 100,
         traceMsgPrefix = "SCORM.API.find",
         trace = pipwerks.UTILS.trace,
         scorm = pipwerks.SCORM;
@@ -854,7 +854,8 @@ class PipwerksScorm {
         this.setValue  = pipwerks.SCORM.data.set;
         this.save = pipwerks.SCORM.data.save;
         this.quit = pipwerks.SCORM.connection.terminate;
-        this.version = pipwerks.SCORM.version;
+        this.getVersion = function() { return pipwerks.SCORM.version; };
+        this.found = function() { return pipwerks.SCORM.API.isFound; };
     }    
 }
 
