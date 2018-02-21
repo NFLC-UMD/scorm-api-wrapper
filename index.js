@@ -847,16 +847,24 @@ pipwerks.UTILS.trace = function(msg){
      }
 };
 
-class PipwerksScorm {
-    constructor() {
-        this.init = pipwerks.SCORM.connection.initialize;
-        this.getValue  = pipwerks.SCORM.data.get;
-        this.setValue  = pipwerks.SCORM.data.set;
-        this.save = pipwerks.SCORM.data.save;
-        this.quit = pipwerks.SCORM.connection.terminate;
-        this.getVersion = function() { return pipwerks.SCORM.version; };
-        this.found = function() { return pipwerks.SCORM.API.isFound; };
-    }    
-}
+"use strict";
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var PipwerksScorm = function PipwerksScorm() {
+    _classCallCheck(this, PipwerksScorm);
+
+    this.init = pipwerks.SCORM.connection.initialize;
+    this.getValue = pipwerks.SCORM.data.get;
+    this.setValue = pipwerks.SCORM.data.set;
+    this.save = pipwerks.SCORM.data.save;
+    this.quit = pipwerks.SCORM.connection.terminate;
+    this.getVersion = function () {
+        return pipwerks.SCORM.version;
+    };
+    this.found = function () {
+        return pipwerks.SCORM.API.isFound;
+    };
+};
 
 module.exports = new PipwerksScorm();
