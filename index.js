@@ -865,6 +865,11 @@ var PipwerksScorm = function PipwerksScorm() {
     this.found = function () {
         return pipwerks.SCORM.API.isFound;
     };
+    this.isCompleted = function() {
+        return pipwerks.SCORM.data.completionStatus === "completed" ||
+        pipwerks.SCORM.data.completionStatus === "passed";
+    }
+    
 };
 
 module.exports = new PipwerksScorm();
